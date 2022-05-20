@@ -1,15 +1,24 @@
 const API = "https://api.github.com/users/";
 
-async function Buscar(){
-    const response = await fetch(API + 'Haymer28')
-    const data = await response.json()
-    console.log(data)
-}
+
 
 const app = Vue.createApp({
     data() {
         return {
-          message: 'Bienvenido!'
+          message: 'Bienvenido!',
+          busqueda: null,
+          result: null
         }
-      }
-})                                              //.mount('#app') //montamos esta información en el html o en el div app
+      },
+    //La palabra de function ya no es necesario ya que se usa en motodo
+    methods: {
+      async Buscar(){
+        const response = await fetch(API + this.busqueda)
+        const data = await response.json()
+        console.log(data)
+        this.result = true
+    }
+    },
+})   
+Buscar();                                           
+

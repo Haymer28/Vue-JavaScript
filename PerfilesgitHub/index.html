@@ -21,12 +21,21 @@
             <h1 class="content__title">Search GitHub users</h1>
             <center><p>{{message}}</p></center>
             <!-- Search -->
-            <form class="search">
-                <input type="text" class="search__input" required placeholder="Search GitHub users">
-                <input type="submit" class="search__submit" value="Search">
+            <form class="search" v-on:submit.prevent="Buscar">
+                <input v-model="busqueda" type="text" class="search__input" required placeholder="Search GitHub users">
+                <input type="submit" class="search__submit" value="Buscar">
             </form>
 
             <!-- Result -->
+            <div class="result" v-if="result">
+                <h2 class="result__name">Carlos Haymer Gonzalez Valencia</h2>
+                <img src="img/elpo.jpg" alt="" class="result__avatar">
+                <p class="result__bio">Aprendiz exitoso graduado de la Tecnología en ADSI.
+                    Les desea muy buenos dias a los señores y señoras de tercera edad.
+                    <br>
+                    <a href="www.google.com" style="color: white;">El creo está página con la compañia de sus compañeros</a>
+                </p>
+            </div>
             <!-- Error -->
             <div class="result__error"></div>
         </article>
